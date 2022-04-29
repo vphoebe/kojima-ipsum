@@ -17,7 +17,7 @@ export function getSentence(allValues: string[]) {
   for (let i = 0; i < sentenceLength; i++) {
     let idx = getRandomInclusiveInt(allValues.length - 1)
     while (usedIdxs.includes(idx)) {
-      idx = getRandomInclusiveInt(allValues.length)
+      idx = getRandomInclusiveInt(allValues.length - 1)
     }
     usedIdxs.push(idx)
     const value = allValues[idx]
