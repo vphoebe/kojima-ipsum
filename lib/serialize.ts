@@ -1,3 +1,10 @@
+import { nanoid } from 'nanoid'
+
+export type ParagraphWithKey = {
+  _key: string
+  paragraph: string
+}
+
 export function getRandomInclusiveInt(inclusiveMax: number, inclusiveMin = 0) {
   return Math.floor(
     Math.random() * (inclusiveMax - inclusiveMin + 1) + inclusiveMin
@@ -37,4 +44,17 @@ export function getParagraph(allValues: string[]) {
     sentences.push(newSentence)
   }
   return sentences.join(' ')
+}
+
+export function getParagraphs(allValues: string[]): ParagraphWithKey[] {
+  const paragraphCount = 4 // todo: make param
+  const paragraphs: string[] = []
+  for (let i = 0; i < paragraphCount; i++) {
+    const paragraph = getParagraph(allValues)
+    paragraphs.push(paragraph)
+  }
+  return paragraphs.map((p) => ({
+    _key: nanoid(),
+    paragraph: p,
+  }))
 }

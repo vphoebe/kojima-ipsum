@@ -1,14 +1,14 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { NextPage } from 'next'
 import React from 'react'
-import { GenerateResponseData } from './api/generate'
+import { ParagraphWithKey } from '../lib/serialize'
 
 const Home: NextPage = () => {
-  const [paragraphs, setParagraphs] = React.useState<GenerateResponseData[]>([])
+  const [paragraphs, setParagraphs] = React.useState<ParagraphWithKey[]>([])
 
   React.useEffect(() => {
     const getIpsumText = async () => {
       const response = await fetch('/api/generate')
-      const paragraphsData: GenerateResponseData[] = await response.json()
+      const paragraphsData: ParagraphWithKey[] = await response.json()
       setParagraphs(paragraphsData)
     }
     getIpsumText()
