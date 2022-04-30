@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      mono: ['anonymous-pro', 'ui-monospace'],
+    },
   },
   plugins: [],
 }

@@ -16,9 +16,7 @@ function capitalizeFirstLetter(string: string) {
 }
 
 export function getSentence(allValues: string[], capitalize = false) {
-  // sentence should be from 4-11 words
-  // no repeated words in a sentence
-  const sentenceLength = getRandomInclusiveInt(11, 4)
+  const sentenceLength = getRandomInclusiveInt(9, 4)
   const sentenceValues: string[] = []
   const usedIdxs: number[] = []
   for (let i = 0; i < sentenceLength; i++) {
@@ -35,9 +33,7 @@ export function getSentence(allValues: string[], capitalize = false) {
 }
 
 export function getParagraph(allValues: string[], capitalize = false) {
-  // paragraph should be from 6-22 sentences
-  // repeated words in a paragraph are ok
-  const paragraphLength = getRandomInclusiveInt(16, 5)
+  const paragraphLength = getRandomInclusiveInt(13, 8)
   const sentences: string[] = []
   for (let i = 0; i < paragraphLength; i++) {
     const newSentence = getSentence(allValues, capitalize)
