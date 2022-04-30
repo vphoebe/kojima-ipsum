@@ -15,7 +15,7 @@ function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export function getSentence(allValues: string[]) {
+export function getSentence(allValues: string[], capitalize = false) {
   // sentence should be from 4-11 words
   // no repeated words in a sentence
   const sentenceLength = getRandomInclusiveInt(11, 4)
@@ -28,29 +28,32 @@ export function getSentence(allValues: string[]) {
     }
     usedIdxs.push(idx)
     const value = allValues[idx]
-    sentenceValues.push(value.toLocaleLowerCase())
+    sentenceValues.push(capitalize ? value : value.toLocaleLowerCase())
   }
   const rawSentence = sentenceValues.join(' ')
   return `${capitalizeFirstLetter(rawSentence)}.`
 }
 
-export function getParagraph(allValues: string[]) {
+export function getParagraph(allValues: string[], capitalize = false) {
   // paragraph should be from 6-22 sentences
   // repeated words in a paragraph are ok
   const paragraphLength = getRandomInclusiveInt(16, 5)
   const sentences: string[] = []
   for (let i = 0; i < paragraphLength; i++) {
-    const newSentence = getSentence(allValues)
+    const newSentence = getSentence(allValues, capitalize)
     sentences.push(newSentence)
   }
   return sentences.join(' ')
 }
 
-export function getParagraphs(allValues: string[]): ParagraphWithKey[] {
-  const paragraphCount = 4 // todo: make param
+export function getParagraphs(
+  allValues: string[],
+  count: number,
+  capitalize = false
+): ParagraphWithKey[] {
   const paragraphs: string[] = []
-  for (let i = 0; i < paragraphCount; i++) {
-    const paragraph = getParagraph(allValues)
+  for (let i = 0; i < count; i++) {
+    const paragraph = getParagraph(allValues, capitalize)
     paragraphs.push(paragraph)
   }
   return paragraphs.map((p) => ({
