@@ -48,7 +48,7 @@ export function getParagraph(allValues: string[], capitalize = false) {
 
 export function getParagraphs(
   allValues: string[],
-  count: number,
+  count: number = 0,
   capitalize = false
 ): ParagraphWithKey[] {
   const paragraphs: string[] = []

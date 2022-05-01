@@ -10,7 +10,9 @@ export type AppProps = {
 }
 
 const App = ({ allValues }: AppProps) => {
-  const [paragraphCount, setParagraphCount] = React.useState(3)
+  const [paragraphCount, setParagraphCount] = React.useState<
+    number | undefined
+  >(3)
   const [capitalize, setCapitalize] = React.useState(false)
   const [paragraphs, setParagraphs] = React.useState<ParagraphWithKey[]>([])
 

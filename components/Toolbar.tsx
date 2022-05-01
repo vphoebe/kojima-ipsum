@@ -4,8 +4,8 @@ import { FaRegCopy, FaSyncAlt } from 'react-icons/fa'
 type ToolbarProps = {
   capitalize: boolean
   setCapitalize: React.Dispatch<React.SetStateAction<boolean>>
-  paragraphCount: number
-  setParagraphCount: React.Dispatch<React.SetStateAction<number>>
+  paragraphCount?: number
+  setParagraphCount: React.Dispatch<React.SetStateAction<number | undefined>>
   value: string
   resetParagraphs: () => void
 }
@@ -49,11 +49,14 @@ const Toolbar = ({
         <input
           type="number"
           pattern="\d*"
-          min={1}
-          value={paragraphCount}
-          onChange={(e) =>
-            setParagraphCount(e.target.value ? parseInt(e.target.value) : 0)
-          }
+          value={paragraphCount ?? ''}
+          onChange={(e) => {
+            if (e.target.value) {
+              setParagraphCount(parseInt(e.target.value))
+            } else {
+              setParagraphCount(undefined)
+            }
+          }}
           className="ml-2 w-12 border border-white bg-transparent p-1 text-center text-xl text-green-300"
         ></input>
       </label>
