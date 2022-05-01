@@ -26,7 +26,10 @@ export function getSentence(allValues: string[], capitalize = false) {
     }
     usedIdxs.push(idx)
     const value = allValues[idx]
-    sentenceValues.push(capitalize ? value : value.toLocaleLowerCase())
+    const isAcronym = /^[^a-z]{2}/.test(value)
+    sentenceValues.push(
+      capitalize ? value : isAcronym ? value : value.toLocaleLowerCase()
+    )
   }
   const rawSentence = sentenceValues.join(' ')
   const punctuation = rawSentence.endsWith('.') ? '' : '.'
