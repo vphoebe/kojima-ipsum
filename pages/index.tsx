@@ -1,9 +1,20 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import React from 'react'
-import App from '../components/App'
+import App, { AppProps } from '../components/App'
+import { getAllValues } from '../lib/data'
 
-const Index: NextPage = () => {
-  return <App />
+interface IndexProps extends AppProps {}
+
+const Index: NextPage<IndexProps> = ({ allValues }) => {
+  return <App allValues={allValues} />
 }
 
 export default Index
+
+export const getStaticProps: GetStaticProps<IndexProps> = async () => {
+  return {
+    props: {
+      allValues: await getAllValues(),
+    },
+  }
+}

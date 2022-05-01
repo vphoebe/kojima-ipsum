@@ -1,48 +1,43 @@
-import { ParagraphWithKey } from '../lib/serialize'
+import { getParagraphs, ParagraphWithKey } from '../lib/serialize'
 import * as React from 'react'
 import Paragraphs from './Paragraphs'
 import Toolbar from './Toolbar'
 
-const App = () => {
+export type AppProps = {
+  allValues: string[]
+}
+
+const App = ({ allValues }: AppProps) => {
   const [paragraphCount, setParagraphCount] = React.useState(3)
   const [capitalize, setCapitalize] = React.useState(false)
   const [paragraphs, setParagraphs] = React.useState<ParagraphWithKey[]>([])
-  const [isLoading, setLoading] = React.useState(true)
-  const [value, setValue] = React.useState('')
+
+  const serializedValue = React.useMemo(
+    () => paragraphs.map((p) => p.paragraph).join('\n\n'),
+    [paragraphs]
+  )
+
+  const resetParagraphs = React.useCallback(() => {
+    const newParagraphs = getParagraphs(allValues, paragraphCount, capitalize)
+    setParagraphs(newParagraphs)
+  }, [allValues, paragraphCount, capitalize])
 
   React.useEffect(() => {
-    const getIpsumText = async () => {
-      const response = await fetch(
-        `/api/generate?count=${paragraphCount}&capitalize=${capitalize}`
-      )
-      const paragraphsData: ParagraphWithKey[] = await response.json()
-      setParagraphs(paragraphsData)
-      setLoading(false)
-    }
-
-    if (isLoading) {
-      getIpsumText()
-    }
-  }, [paragraphCount, capitalize, isLoading])
-
-  React.useEffect(() => {
-    const newValue = paragraphs.map((p) => p.paragraph).join('\n\n')
-    setValue(newValue)
-  }, [paragraphs])
+    resetParagraphs()
+  }, [allValues, paragraphCount, capitalize, resetParagraphs])
 
   return (
     <main className="h-screen flex-col bg-stone-900 px-8 font-mono lg:py-24">
       <div className="mx-auto flex h-full max-w-4xl flex-col">
         <h1 className="py-4 text-xl text-white">Kojima-ipsum</h1>
-        <Paragraphs value={value} />
+        <Paragraphs value={serializedValue} />
         <Toolbar
-          isLoading={isLoading}
-          setLoading={setLoading}
           capitalize={capitalize}
           setCapitalize={setCapitalize}
           paragraphCount={paragraphCount}
           setParagraphCount={setParagraphCount}
-          value={value}
+          value={serializedValue}
+          resetParagraphs={resetParagraphs}
         />
       </div>
     </main>

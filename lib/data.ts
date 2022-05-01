@@ -20,7 +20,7 @@ async function getValuesFromCsvFile(path: PathLike): Promise<string[]> {
 }
 
 export async function getAllValues(): Promise<string[]> {
-  const dataDir = path.resolve('./public', 'data')
+  const dataDir = path.resolve('./', 'data')
   const dataFiles = readdirSync(dataDir)
   const csvFilenames = dataFiles.filter((f) => f.includes('.csv'))
 
