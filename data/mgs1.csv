@@ -4,11 +4,11 @@ FA-MAS,Liquid Snake,Tank Hangar
 PSG-1,Revolver Ocelot,Nuclear Warhead Storage Building
 Nikita,Otacon,Communication Towers
 Stinger,Meryl,Maintenance Facility
-Grenade,Naomi,snowfield
-Chaff,Master Miller,Outer Heaven
-Stun,Campbell,helipad
+grenade,Naomi,snowfield
+chaff,Master Miller,Outer Heaven
+stun,Campbell,helipad
 C4,Mei Ling,armory
-Claymore,Gray Fox,warehouse
+claymore,Gray Fox,warehouse
 Metal Gear,Nastasha,blast furnace
 Hind D,Vulcan Raven,
 PAL,Psycho Mantis,
@@ -29,7 +29,7 @@ Pentagon,Snake,
 snowmobile,,
 genome,,
 Soliton Radar,,
-Codec,,
+codec,,
 nuclear,,
 DNA,,
 vaccine,,
@@ -42,4 +42,4 @@ ketchup,,
 stealth camouflage,,
 bandana,,
 wolf,,
-hideo,,
+HIDEO,,
