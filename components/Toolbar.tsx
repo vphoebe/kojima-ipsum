@@ -10,7 +10,7 @@ type ToolbarProps = {
   resetParagraphs: () => void
 }
 
-const buttonStyle = `px-4 py-2 flex items-center justify-center transition-colors mr-1`
+const buttonStyle = `px-4 py-2 flex items-center justify-center transition-colors`
 const labelStyle = `text-green-300 flex items-center justify-center`
 
 const Toolbar = ({
@@ -25,7 +25,7 @@ const Toolbar = ({
   return (
     <div className="flex flex-col justify-between gap-3 py-4 md:flex-row">
       <label className={labelStyle}>
-        Paragraph count:
+        Paragraphs:
         <input
           type="number"
           min={1}
@@ -45,7 +45,7 @@ const Toolbar = ({
       </label>
       <div className="flex">
         <button
-          className={`${buttonStyle} ${copyButtonColor}`}
+          className={`${buttonStyle} ${copyButtonColor} mr-1`}
           onClick={() => {
             navigator.clipboard.writeText(value)
             setCopyButtonColor('bg-green-100')
