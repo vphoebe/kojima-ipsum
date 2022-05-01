@@ -6,9 +6,9 @@ type ParagraphsProps = {
 
 const Paragraphs = ({ value }: ParagraphsProps) => {
   return (
-    <div className="flex-1 border-2 border-white bg-stone-900 p-4">
+    <div className="flex-1 border-2 border-white bg-stone-900">
       <textarea
-        className="mb-4 h-full w-full resize-none bg-transparent text-justify leading-tight text-green-300"
+        className="mb-4 h-full w-full resize-none border-0 bg-transparent p-4 text-justify text-sm leading-tight text-green-300 md:text-base"
         value={value}
         readOnly
       ></textarea>

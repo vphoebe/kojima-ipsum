@@ -29,9 +29,9 @@ const App = ({ allValues }: AppProps) => {
   }, [allValues, paragraphCount, capitalize, resetParagraphs])
 
   return (
-    <main className="h-screen flex-col bg-stone-900 px-8 font-mono lg:py-24">
+    <main className="absolute inset-0 flex-col bg-stone-900 px-8 font-mono lg:py-24">
       <div className="mx-auto flex h-full max-w-4xl flex-col">
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           <h1 className="py-4 text-xl text-white">Kojima-ipsum</h1>
           <Link href="https://github.com/vphoebe/kojima-ipsum" passHref>
             <a>

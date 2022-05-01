@@ -10,7 +10,7 @@ type ToolbarProps = {
   resetParagraphs: () => void
 }
 
-const buttonStyle = `px-4 py-2 flex items-center justify-center transition-colors`
+const buttonStyle = `px-4 py-2 flex items-center justify-center transition-colors flex-1`
 const labelStyle = `text-green-300 flex items-center justify-center`
 
 const Toolbar = ({
@@ -24,25 +24,6 @@ const Toolbar = ({
   const [copyButtonColor, setCopyButtonColor] = React.useState('bg-green-500')
   return (
     <div className="flex flex-col justify-between gap-3 py-4 md:flex-row">
-      <label className={labelStyle}>
-        Paragraphs:
-        <input
-          type="number"
-          min={1}
-          value={paragraphCount}
-          onChange={(e) => setParagraphCount(parseInt(e.target.value))}
-          className="ml-2 w-24 border border-white bg-transparent px-2 py-1 text-green-300"
-        ></input>
-      </label>
-      <label className={labelStyle}>
-        Capitalize proper nouns?
-        <input
-          type="checkbox"
-          className="ml-2"
-          checked={capitalize}
-          onChange={() => setCapitalize(!capitalize)}
-        ></input>
-      </label>
       <div className="flex">
         <button
           className={`${buttonStyle} ${copyButtonColor} mr-1`}
@@ -63,6 +44,28 @@ const Toolbar = ({
           <FaSyncAlt />
         </button>
       </div>
+      <label className={labelStyle}>
+        Paragraphs:
+        <input
+          type="number"
+          pattern="\d*"
+          min={1}
+          value={paragraphCount}
+          onChange={(e) =>
+            setParagraphCount(e.target.value ? parseInt(e.target.value) : 0)
+          }
+          className="ml-2 w-12 border border-white bg-transparent p-1 text-center text-xl text-green-300"
+        ></input>
+      </label>
+      <label className={labelStyle}>
+        Capitalize proper nouns?
+        <input
+          type="checkbox"
+          className="form-checkbox ml-2 h-6 w-6 border-green-100 bg-transparent text-green-600"
+          checked={capitalize}
+          onChange={() => setCapitalize(!capitalize)}
+        ></input>
+      </label>
     </div>
   )
 }

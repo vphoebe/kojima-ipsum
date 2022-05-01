@@ -9,5 +9,5 @@ module.exports = {
       mono: ['anonymous-pro', 'ui-monospace'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
