@@ -1,23 +1,9 @@
-# Next.js + Tailwind CSS Example
+# kojima-ipsum
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+Create lorem ipsum text using words, characters, and locations from Hideo Kojima's games.
 
-## Deploy your own
+# Dataset
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+Since I manually created the dataset, all of the data is currently in CSV format for easy export from Google Sheets. The data comes from a few sources, but mainly was informed by the [Metal Gear Wiki](https://metalgear.fandom.com/wiki/Metal_Gear_Wiki) and the [Death Stranding Wiki](https://deathstranding.fandom.com/wiki/Death_Stranding_Wiki).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-# or
-pnpm create next-app -- --example with-tailwindcss with-tailwindcss-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Right now, it only has data from MGS1, MGS2, and Death Stranding, with the rest of the canon Metal Gear games and Snatcher coming soon!
