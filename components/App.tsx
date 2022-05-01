@@ -2,6 +2,8 @@ import { getParagraphs, ParagraphWithKey } from '../lib/serialize'
 import * as React from 'react'
 import Paragraphs from './Paragraphs'
 import Toolbar from './Toolbar'
+import Link from 'next/link'
+import { FaGithub } from 'react-icons/fa'
 
 export type AppProps = {
   allValues: string[]
@@ -29,7 +31,14 @@ const App = ({ allValues }: AppProps) => {
   return (
     <main className="h-screen flex-col bg-stone-900 px-8 font-mono lg:py-24">
       <div className="mx-auto flex h-full max-w-4xl flex-col">
-        <h1 className="py-4 text-xl text-white">Kojima-ipsum</h1>
+        <div className="flex items-center">
+          <h1 className="py-4 text-xl text-white">Kojima-ipsum</h1>
+          <Link href="https://github.com/vphoebe/kojima-ipsum" passHref>
+            <a>
+              <FaGithub className="ml-4 fill-stone-600 transition-colors hover:fill-white" />
+            </a>
+          </Link>
+        </div>
         <Paragraphs value={serializedValue} />
         <Toolbar
           capitalize={capitalize}
