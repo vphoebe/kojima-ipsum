@@ -8,7 +8,7 @@ class KIDocument extends Document {
           <link href="https://use.typekit.net/zvf4bjw.css" rel="stylesheet" />
           <meta
             property="og:image"
-            content="https://kojima-ipsum.sjw.zone/public/og.png"
+            content="https://kojima-ipsum.vercel.app/og.png"
           />
           <meta
             name="description"
